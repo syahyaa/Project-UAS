@@ -28,6 +28,7 @@
 <!-- /End Footer Area -->
 
 <!-- Jquery -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href="{{ asset ('user/js/jquery-migrate-3.0.0.js') }}"><
 <link href="{{ asset ('user/js/jquery.min.js') }}">
 <link href="{{ asset ('user/js/jquery-ui.min.js') }}">
