@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-
-
-
-
-
 class Pesanan extends Model
 {
     use HasFactory;
 
-    protected $table = 'table';
+    protected $table = 'pesanan';
 
     public $timestamps = false;
 

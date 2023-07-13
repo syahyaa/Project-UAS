@@ -11,7 +11,7 @@
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-      <a class="nav-link " href="{{ url('admin/produk') }}">
+      <a class="nav-link collapsed" href="{{ url('admin/produk') }}">
         <i class="bi bi-menu-button-wide"></i><span>Produk</span>
       </a>
     </li><!-- End Components Nav -->
@@ -43,12 +43,12 @@
 
     <li class="nav-heading">Pages</li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" href="pages-contact.html">
         <i class="bi bi-envelope"></i>
         <span>Contact</span>
-      </a>
-    </li><!-- End Contact Page Nav -->
+      </a> --}}
+    {{-- </li><!-- End Contact Page Nav --> --}}
 
     
 

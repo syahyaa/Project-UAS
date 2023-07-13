@@ -25,12 +25,12 @@ class Pelanggan extends Model
         'pembelian_id'
     ];
 
-    public function pembelian(){
-       return $this->belongTo(Pembelian::class); 
-    }
+    // public function pembelian(){
+    //    return $this->belongTo(Pembelian::class); 
+    // }
 
     public function getALLData(){
-        $alldata = DB::table('pelanggan')->join('pembelian', 'pelanggan.pembelian_id', '=', 'pembelian.id')->select('pelanggan.*', 'pembelian.nomor_pembelian as no_beli')->get();
+        $alldata = DB::table('pelanggan')->select('pelanggan.*')->get();
         return $alldata;
     }
 }

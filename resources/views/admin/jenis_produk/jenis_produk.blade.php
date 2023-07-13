@@ -25,7 +25,7 @@
         </div>
         <div class="card-header">
             {{-- @if (Auth::user()->role == 'admin') --}}
-                <a href="{{url('admin/kategoriproduk/create')}}" class="btn btn-primary">Tambah Jenis Produk</a>
+                <a href="{{url('admin/jenisproduk/create')}}" class="btn btn-primary">Tambah Jenis Produk</a>
             {{-- @endif --}}
         </div>
         <div class="card-body">
@@ -48,13 +48,13 @@
                         <td>{{ $jenisprod->nama }}</td>
                         <td>
                             {{-- @if (Auth::user()->role == 'admin') --}}
-                            <a href=" {{ url('/admin/produk/delete/' . $jenisprod->id) }}">
-                                <button type="button" class="btn btn-warning btn-sn" title="Edit jenis produk">
-                                    <i class="fa-solid fa-pen-to-square fa-beat"></i>
+                            {{-- @endif --}}
+                            <a href=" {{ url('/admin/jenisproduk/detail/' . $jenisprod->id) }}">
+                                <button type="button" class="btn btn-warning btn-sn" title="Detail Jenis Produk">
+                                    <i class="fa-solid fa-eye fa-beat"></i>
                                 </button>
                             </a>
-                            {{-- @endif --}}
-                            <a href=" {{ url('/admin/kategoriproduk/delete/' . $jenisprod->id) }}">
+                            <a href=" {{ url('/admin/jenisproduk/delete/' . $jenisprod->id) }}">
                                 <button type="button" class="btn btn-danger btn-sn" title="hapus jenis produk">
                                     <i class="fa-solid fa-trash-can fa-beat"></i>
                                 </button>

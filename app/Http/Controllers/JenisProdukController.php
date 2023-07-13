@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\JenisProduk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class JenisProdukController extends Controller
 {
@@ -21,7 +24,9 @@ class JenisProdukController extends Controller
      */
     public function create()
     {
-        //
+        //menampilkan seluruh data jenis produk
+        $jenis_produk = JenisProduk::all();
+        return view('admin/jenis_produk/create');
     }
 
     /**
@@ -29,7 +34,17 @@ class JenisProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // buat class dengan nama table yang mau kita tambahkan datanya
+        $jenis_produk = new JenisProduk();
+
+        // ambil data yang diinputkan oleh user ke dalam parameter request
+        // kemudian simpan dalam variable
+        $jenis_produk->nama = $request->nama;
+
+        // kemudian simpan menggunakan method request
+        $jenis_produk->save();
+        //  kemudian kembalikan ke tampilan jenis produk
+        return redirect('admin/jenisproduk');
     }
 
     /**
@@ -37,7 +52,8 @@ class JenisProdukController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $jenis_produk = JenisProduk::find($id);
+        return view('admin.jenis_produk.detail', compact('jenis_produk'));
     }
 
     /**
@@ -61,6 +77,10 @@ class JenisProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // buka table jenis produk
+        // cari data yang akan dihapus berdasarkan id
+        // hapus data menggunakan method delete
+        DB::table('jenis_produk')->where('id', $id)->delete();
+        return redirect('admin/jenisproduk');
     }
 }

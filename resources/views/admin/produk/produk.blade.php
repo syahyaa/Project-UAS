@@ -19,9 +19,9 @@
             Data Produk
         </div>
         <div class="card-header">
-            <a href="{{ url('admin/kategoriproduk/create') }}" class="btn btn-primary">Tambah Produk</a>
+            <a href="{{ url('admin/produk/create') }}" class="btn btn-primary">Tambah Produk</a>
         </div>
-        <div class="card-body">
+        <div class="card-body overflow-hidden">
             <table class="table table-bordered" id="datatablesSimple">
                 <thead>
                     <tr>
@@ -52,16 +52,24 @@
                             <td> {{ $prod->min_stok }} </td>
                             <td> {{ $prod->nama_jenis_produk }} </td>
                             <td>
-                                <a href=" {{ url('/admin/produk/delete/' . $prod->id) }}">
-                                    <button type="button" class="btn btn-warning btn-sn" title="Edit Produk">
-                                        <i class="fa-solid fa-pen-to-square fa-beat"></i>
-                                    </button>
-                                </a>
-                                <a href=" {{ url('/admin/kategoriproduk/delete/' . $prod->id) }}">
-                                    <button type="button" class="btn btn-danger btn-sn" title="hapus Produk">
-                                        <i class="fa-solid fa-trash-can fa-beat"></i>
-                                    </button>
-                                </a>
+                                <div class="d-flex justify-content-evenly">
+                                    <a class="col-md-3" href=" {{ url('/admin/produk/detail/' . $prod->id) }}">
+                                        <button type="button" class="btn btn-warning btn-sn" title="Detail Produk">
+                                            <i class="fa-solid fa-eye fa-beat"></i>
+                                        </button>
+                                    </a>
+                                    <a class="col-md-3" href=" {{ url('/admin/produk/edit/' . $prod->id) }}">
+                                        <button type="button" class="btn btn-warning btn-sn" title="Edit Produk">
+                                            <i class="fa-solid fa-pen-to-square fa-beat"></i>
+                                        </button>
+                                    </a>
+                                    <a class="col-md-3" href=" {{ url('/admin/produk/delete/' . $prod->id) }}">
+                                        <button type="button" class="btn btn-danger btn-sn" title="hapus Produk">
+                                            <i class="fa-solid fa-trash-can fa-beat"></i>
+                                        </button>
+                                    </a>
+                                </div>
+                                
                             </td>
                         </tr>
                         @php
