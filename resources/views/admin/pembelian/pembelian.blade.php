@@ -12,7 +12,7 @@
         <h1>Pembelian</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
                 <li class="breadcrumb-item active">Data Pembelian</li>
             </ol>
         </nav>
@@ -23,9 +23,9 @@
             Data Pembelian
         </div>
         <div class="card-header">
-            {{-- @if (Auth::user()->role == 'admin') --}}
+            @if (Auth::user()->role == 'admin')
             <a href="{{ url('admin/pembelian/create') }}" class="btn btn-primary">Tambah Pembelian</a>
-            {{-- @endif --}}
+            @endif
         </div>
         <div class="card-body">
             <table class="table table-bordered" id="datatablesSimple">
@@ -55,7 +55,7 @@
                             <td>{{ $pem->harga }}</td>
                             <td>
                                 <div class="row">
-                                    {{-- @if (Auth::user()->role == 'admin') --}}
+                                    
                                     <a class="col-md-4" href=" {{ url('/admin/pembelian/detail/' . $pem->id) }}">
                                         <button type="button" class="btn btn-warning btn-sn" title="Detail Pembelian">
                                             <i class="fa-solid fa-eye fa-beat"></i>
@@ -66,12 +66,14 @@
                                             <i class="fa-solid fa-pen-to-square fa-beat"></i>
                                         </button>
                                     </a>
-                                    {{-- @endif --}}
+                                    
+                                    @if (Auth::user()->role == 'admin')
                                     <a class="col-md-4" href=" {{ url('/admin/pembelian/delete/' . $pem->id) }}">
                                         <button type="button" class="btn btn-danger btn-sn" title="hapus Pembelian">
                                             <i class="fa-solid fa-trash-can fa-beat"></i>
                                         </button>
                                     </a>
+                                    @endif
                                 </div>
 
                             </td>

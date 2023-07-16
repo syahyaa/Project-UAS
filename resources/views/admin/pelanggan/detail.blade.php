@@ -9,15 +9,15 @@
     <h1>Pelanggan</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Data Pelanggan</li>
+            <li class="breadcrumb-item"><a href="{{url('admin/pelanggan')}}">Data Pelanggan</a></li>
+            <li class="breadcrumb-item active">Detail</li>
         </ol>
     </nav>
 </div>
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Data Pelanggan
+        Detail Pelanggan
     </div>
         
     <div class="card-body">

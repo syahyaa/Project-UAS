@@ -8,7 +8,7 @@
         <h1>Produk</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
                 <li class="breadcrumb-item active">Data Produk</li>
             </ol>
         </nav>
@@ -19,7 +19,9 @@
             Data Produk
         </div>
         <div class="card-header">
+            @if (Auth::user()->role == 'admin')
             <a href="{{ url('admin/produk/create') }}" class="btn btn-primary">Tambah Produk</a>
+            @endif
         </div>
         <div class="card-body overflow-hidden">
             <table class="table table-bordered" id="datatablesSimple">
@@ -63,11 +65,13 @@
                                             <i class="fa-solid fa-pen-to-square fa-beat"></i>
                                         </button>
                                     </a>
+                                    @if (Auth::user()->role == 'admin')
                                     <a class="col-md-3" href=" {{ url('/admin/produk/delete/' . $prod->id) }}">
                                         <button type="button" class="btn btn-danger btn-sn" title="hapus Produk">
                                             <i class="fa-solid fa-trash-can fa-beat"></i>
                                         </button>
                                     </a>
+                                    @endif
                                 </div>
                                 
                             </td>

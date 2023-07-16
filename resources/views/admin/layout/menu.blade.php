@@ -53,7 +53,7 @@
     
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-login.html">
+      <a class="nav-link collapsed" href="{{url('user/dashboard')}}">
         <i class="bi bi-box-arrow-in-right"></i>
         <span>Login to Front</span>
       </a>

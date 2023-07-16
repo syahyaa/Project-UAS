@@ -12,7 +12,7 @@
         <h1>Pelanggan</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
                 <li class="breadcrumb-item active">Data Pelanggan</li>
             </ol>
         </nav>
@@ -23,9 +23,9 @@
             Data Pelanggan
         </div>
         <div class="card-header">
-            {{-- @if (Auth::user()->role == 'admin') --}}
+            @if (Auth::user()->role == 'admin')
             <a href="{{ url('admin/pelanggan/create') }}" class="btn btn-primary">Tambah Pelanggan</a>
-            {{-- @endif --}}
+            @endif
         </div>
         <div class="card-body overflow-hidden px-2">
             <table class="table table-bordered" id="datatablesSimple">
@@ -57,7 +57,7 @@
                             {{-- <td>{{ $pel->no_beli }}</td> --}}
                             <td class="overflow-hidden">
                                 <div class="d-flex justify-content-evenly">
-                                    {{-- @if (Auth::user()->role == 'admin') --}}
+                                    
                                     <a class="col-md-4" href=" {{ url('/admin/pelanggan/detail/' . $pel->id) }}">
                                         <button type="button" class="btn btn-warning btn-sn" title="Detail Pelanggan">
                                             <i class="fa-solid fa-eye fa-beat"></i>
@@ -68,12 +68,13 @@
                                             <i class="fa-solid fa-pen-to-square fa-beat"></i>
                                         </button>
                                     </a>
-                                    {{-- @endif --}}
+                                    @if (Auth::user()->role == 'admin')
                                     <a class="col-md-4" href=" {{ url('/admin/pelanggan/delete/' . $pel->id) }}">
                                         <button type="button" class="btn btn-danger btn-sn" title="hapus Pelanggan">
                                             <i class="fa-solid fa-trash-can fa-beat"></i>
                                         </button>
                                     </a>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

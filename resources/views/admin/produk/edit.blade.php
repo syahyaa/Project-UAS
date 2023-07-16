@@ -5,8 +5,16 @@
 
 {{-- halaman dashboard adalah anak dari si parent --}}
 @section('content')
+<div class="pagetitle">
+    <h1>Produk</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url('admin/produk') }}">Data Produk</a></li>
+            <li class="breadcrumb-item active">Edit Data</li>
+        </ol>
+    </nav>
+</div>
     @foreach ($produk as $prod)
-        <h1 style="text-align: center">Edit Data</h1>
         <hr>
         <form method="POST" action="{{ url('admin/produk/update/'. $prod->id) }}">
             {{ csrf_field() }}
@@ -47,7 +55,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="jenis_produk_id" class="col-4 col-form-label">Select</label>
+                <label for="jenis_produk_id" class="col-4 col-form-label">Jenis Produk</label>
                 <div class="col-8">
                     <select id="jenis_produk_id" name="jenis_produk_id" class="custom-select">
                         @foreach ($jenis_produk as $jenisprod)

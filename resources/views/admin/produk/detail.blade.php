@@ -9,15 +9,15 @@
     <h1>Produk</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Data Produk</li>
+            <li class="breadcrumb-item"><a href="{{url('admin/produk')}}">Data Produk</a></li>
+            <li class="breadcrumb-item active">Detail</li>
         </ol>
     </nav>
 </div>
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Data Produk
+        Detail Produk
     </div>
         
     <div class="card-body">
@@ -29,7 +29,7 @@
             <li>Harga Jual : {{$produk->harga_jual}}</li>
             <li>Stok : {{$produk->stok}}</li>
             <li>Minimal Stok : {{$produk->min_stok}}</li>
-            <li>Jenis Produk : {{$produk->jenis_produk_id}}</li>
+            {{-- <li>Jenis Produk : {{$produk->jenis_produk_id}}</li> --}}
         </ul>
         
     </div>

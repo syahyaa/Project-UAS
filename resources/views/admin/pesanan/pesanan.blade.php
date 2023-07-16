@@ -12,7 +12,7 @@
         <h1>Pesanan</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
                 <li class="breadcrumb-item active">Data Pesanan</li>
             </ol>
         </nav>
@@ -23,9 +23,9 @@
             Data Pesanan
         </div>
         <div class="card-header">
-            {{-- @if (Auth::user()->role == 'admin') --}}
+            @if (Auth::user()->role == 'admin')
             <a href="{{ url('admin/pesanan/create') }}" class="btn btn-primary">Tambah Pesanan</a>
-            {{-- @endif --}}
+            @endif
         </div>
         <div class="card-body">
             <table class="table table-bordered" id="datatablesSimple">
@@ -51,7 +51,7 @@
                             <td>{{ $pes->nama_pelanggan }}</td>
                             <td>
                                 <div class="row">
-                                    {{-- @if (Auth::user()->role == 'admin') --}}
+                                    
                                     <a class="col-md-4" href=" {{ url('/admin/pesanan/detail/' . $pes->id) }}">
                                         <button type="button" class="btn btn-warning btn-sn" title="Detail Pesanan">
                                             <i class="fa-solid fa-eye fa-beat"></i>
@@ -62,12 +62,14 @@
                                             <i class="fa-solid fa-pen-to-square fa-beat"></i>
                                         </button>
                                     </a>
-                                    {{-- @endif --}}
+                                    
+                                    @if (Auth::user()->role == 'admin')
                                     <a class="col-md-4" href=" {{ url('/admin/pesanan/delete/' . $pes->id) }}">
                                         <button type="button" class="btn btn-danger btn-sn" title="hapus Pesanan">
                                             <i class="fa-solid fa-trash-can fa-beat"></i>
                                         </button>
                                     </a>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

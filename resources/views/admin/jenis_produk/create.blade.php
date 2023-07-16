@@ -5,7 +5,15 @@
 
 {{-- halaman dashboard adalah anak dari si parent --}}
 @section('content')
-    <h1 style="text-align: center">Tambah Data</h1>
+<div class="pagetitle">
+  <h1>Jenis Produk</h1>
+  <nav>
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ url('admin/produk') }}">Data Jenis Produk</a></li>
+          <li class="breadcrumb-item active">Tambah Data</li>
+      </ol>
+  </nav>
+</div>
     <hr>
     <form method="post" action="{{url('admin/jenisproduk/store')}}">
         {{ csrf_field() }}

@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProdukController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -25,7 +28,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::group(['middleware' => ['auth', 'peran:admin-manager']], function() {
 Route::prefix('admin')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/produk', [ProdukController::class, 'index']);
@@ -66,6 +69,17 @@ Route::prefix('admin')->group(function() {
     Route::get('/pelanggan/delete/{id}', [PelangganController::class, 'destroy']);
     Route::get('/pelanggan/detail/{id}', [PelangganController::class, 'show']);
     
-
-    Route::get('/about', [AboutController::class, 'index']);
+    Route::get('/logout', [DashboardController::class, 'logout']);
 });
+});
+
+// route frontend
+Route::prefix('user')->group(function() {
+    Route::get('/dashboard',[FrontendController::class,'index']);
+    Route::get('/login', [FrontendController::class, 'login']);
+    });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

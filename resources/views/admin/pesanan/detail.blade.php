@@ -9,15 +9,15 @@
     <h1>Pesanan</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Data Pesanan</li>
+            <li class="breadcrumb-item"><a href="{{url('admin/pesanan')}}">Data Pesanan</a></li>
+            <li class="breadcrumb-item active">Detail</li>
         </ol>
     </nav>
 </div>
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Data Pesanan
+        Detail Pesanan
     </div>
         
     <div class="card-body">
@@ -25,7 +25,7 @@
             <li>ID : {{$pesanan->id}}</li>
             <li>Tanggal Pemesanan : {{$pesanan->tanggal}}</li>
             <li>Total Pemesanan : {{$pesanan->total}}</li>
-            <li>Nama Pemesan : {{$pesanan->pelanggan_id}}</li>
+            {{-- <li>Nama Pemesan : {{$pesanan->pelanggan_id}}</li> --}}
         </ul>
     </div>
    

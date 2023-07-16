@@ -5,25 +5,33 @@
 
 {{-- halaman dashboard adalah anak dari si parent --}}
 @section('content')
-    <h1 style="text-align: center">Edit Data</h1>
-    <hr>
+<div class="pagetitle">
+    <h1>Pesanan</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url('admin/produk') }}">Data Pesanan</a></li>
+            <li class="breadcrumb-item active">Edit Data</li>
+        </ol>
+    </nav>
+  </div>
     @foreach ($pesanan as $pes)
-        <form method="POST" action="{{ url('admin/pesanan/update/' . $pes->id) }}">
+        <hr>
+        <form method="POST" action="{{ url('admin/pesanan/update/'. $pes->id) }}">
             {{ csrf_field() }}
             <div class="form-group row">
-                <label for="tanggal" class="col-4 col-form-label">Tanggal</label>
+                <label for="kode" class="col-4 col-form-label">Tanggal</label>
                 <div class="col-8">
-                    <input id="tanggal" name="tanggal" value="{{ $pes->tanggal }}" type="text" class="form-control">
+                    <input id="tanggal" name="tanggal" value="{{$pes->tanggal}}" type="text" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="total" class="col-4 col-form-label">Total</label>
                 <div class="col-8">
-                    <input id="total" name="total" value="{{ $pes->total }}" type="text" class="form-control">
+                    <input id="total" name="total" value="{{$pes->total}}"type="text" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="pelanggan_id" class="col-4 col-form-label">Select</label>
+                <label for="pelanggan_id" class="col-4 col-form-label">Nama Pemesan</label>
                 <div class="col-8">
                     <select id="pelanggan_id" name="pelanggan_id" class="custom-select">
                         @foreach ($pelanggan as $pel)
@@ -40,3 +48,5 @@
         </form>
     @endforeach
 @endsection
+
+

@@ -9,15 +9,15 @@
     <h1>Pembelian</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Data Pembelian</li>
+            <li class="breadcrumb-item"><a href="{{url('admin/pembelian')}}">Data Pembelian</a></li>
+            <li class="breadcrumb-item active">Detail</li>
         </ol>
     </nav>
 </div>
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Data Pembelian
+        Detail Pembelian
     </div>
         
     <div class="card-body">
@@ -25,7 +25,7 @@
             <li>ID : {{$pembelian->id}}</li>
             <li>Tanggal : {{$pembelian->tanggal}}</li>
             <li>No Pembelian : {{$pembelian->nomor_pembelian}}</li>
-            <li>Nama Produk : {{$pembelian->produk_id}}</li>
+            {{-- <li>Nama Produk : {{$pembelian->produk_id}}</li> --}}
             <li>Jumlah : {{$pembelian->jumlah}}</li>
             <li>Harga : {{$pembelian->harga}}</li>
         </ul>

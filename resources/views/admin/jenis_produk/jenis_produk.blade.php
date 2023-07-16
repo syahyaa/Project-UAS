@@ -12,7 +12,7 @@
     <h1>Jenis Produk</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
             <li class="breadcrumb-item active">Data Jenis Produk</li>
         </ol>
     </nav>
@@ -24,9 +24,9 @@
             Data Jenis Produk
         </div>
         <div class="card-header">
-            {{-- @if (Auth::user()->role == 'admin') --}}
+            @if (Auth::user()->role == 'admin')
                 <a href="{{url('admin/jenisproduk/create')}}" class="btn btn-primary">Tambah Jenis Produk</a>
-            {{-- @endif --}}
+            @endif
         </div>
         <div class="card-body">
             <table class="table table-bordered" id="datatablesSimple">
@@ -47,19 +47,20 @@
                         <td>{{ $no }}</td>
                         <td>{{ $jenisprod->nama }}</td>
                         <td>
-                            {{-- @if (Auth::user()->role == 'admin') --}}
-                            {{-- @endif --}}
+                        
+                            
                             <a href=" {{ url('/admin/jenisproduk/detail/' . $jenisprod->id) }}">
                                 <button type="button" class="btn btn-warning btn-sn" title="Detail Jenis Produk">
                                     <i class="fa-solid fa-eye fa-beat"></i>
                                 </button>
                             </a>
+                                @if (Auth::user()->role == 'admin')
                             <a href=" {{ url('/admin/jenisproduk/delete/' . $jenisprod->id) }}">
                                 <button type="button" class="btn btn-danger btn-sn" title="hapus jenis produk">
                                     <i class="fa-solid fa-trash-can fa-beat"></i>
                                 </button>
                             </a>
-                            
+                            @endif
                         </td>
                     </tr>
                     @php

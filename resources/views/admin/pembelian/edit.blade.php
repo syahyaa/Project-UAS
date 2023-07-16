@@ -5,8 +5,16 @@
 
 {{-- halaman dashboard adalah anak dari si parent --}}
 @section('content')
+<div class="pagetitle">
+    <h1>Pembelian</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url('admin/produk') }}">Data Pembelian</a></li>
+            <li class="breadcrumb-item active">Edit Data</li>
+        </ol>
+    </nav>
+  </div>
     @foreach ($pembelian as $pem)
-        <h1 style="text-align: center">Edit Data</h1>
         <hr>
         <form method="POST" action="{{ url('admin/pembelian/update/' . $pem->id) }}">
             {{ csrf_field() }}
